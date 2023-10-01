@@ -1,4 +1,4 @@
-# [Aniemes Achimid](https://animes.achimid.com.br/)
+# [Animes Achimid](https://animes.achimid.com.br/)
 
 - https://animes.achimid.com.br
 - https://anifan.com.br
