@@ -1,0 +1,221 @@
+body, html {
+    height: 100%;
+}
+
+.bg {
+    /* The image used */
+    background-image: url("/img/bg.webp");
+
+    /* Full height */
+    height: 100%;
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    /* background-repeat: no-repeat; */
+    background-repeat: repeat-y;
+    background-size: cover;
+}
+
+.jumbotron {
+    padding: 3rem 2rem;
+    margin-bottom: 1rem;
+}
+
+.list-item {
+    background-color: lavender;
+}
+
+.card-header {
+    padding: 0.2rem 0.5rem;
+}
+
+.badge-info {
+    margin-top: 0.5rem;
+    /* padding: 0.375rem 0.75rem; */
+}
+
+.btn-item {
+    font-weight: bold;
+}
+
+img.card-img {    
+    max-width: 200px;
+    max-height: 280px;    
+}
+
+.btn.focus, .btn:focus {
+    box-shadow: 0 0 0 0 rgb(0 123 255 / 25%);
+}
+
+.line-clamp {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+}
+
+video {
+    
+    width: 100%;
+}
+
+
+
+.grid-style .product {
+    /* position: absolute; */
+    /* top: 50%;
+    left: 50%; */
+    /* transform: translate(-50%, -50%); */
+    margin: 5px 5px 5px 5px;
+    max-width: 225px;
+    max-height: 319px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, .2);
+    border-radius: 5px;
+    background: #0e0e0f;
+    overflow: hidden;
+  }
+
+.grid-style .product .imgbox {
+    height: 100%;
+    box-sizing: border-box
+  }
+
+.grid-style .product .imgbox img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0px auto 0
+  }
+
+.grid-style .specifies {
+    position: relative;
+    width: 100%;
+    bottom: 55px;
+    background: rgba(79, 76, 76, 0.85);
+    padding: 10px;
+    box-sizing: border-box;
+    transition: .5s
+  }
+
+.grid-style .product:hover .specifies {
+    position: relative;
+    width: 100%;
+    bottom: 100%;
+    background: rgba(79, 76, 76, 0.85);
+    padding: 10px;
+    box-sizing: border-box;
+    transition: .5s
+  }
+
+.grid-style .specifies h5 {
+    margin: 0;
+    padding: 0;
+    font-size: 15px;
+    width: 100%;
+    color: #fff;
+    margin-bottom: 20px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    max-width: 200px;
+  }
+
+.grid-style .product:hover .specifies h5 {
+    white-space: initial;
+  }
+
+.grid-style .specifies h5 span {
+    font-size: 15px;
+    color: #ccc;
+    font-weight: normal;
+    float: right;
+    -webkit-text-stroke: 1px #fff;
+  }
+
+.grid-style .specifies .price {
+    position: absolute;
+    top: 12px;
+    right: 25px;
+    font-weight: bold;
+    color: #000;
+    font-size: 30px
+  }
+
+.grid-style label {
+    display: block;
+    margin-top: 5px;
+    font-weight: bold;
+    font-size: 15px
+  }
+
+.grid-style ul {
+    display: flex;
+    margin: 0;
+    padding: 0
+  }
+
+.grid-style ul li {
+    list-style: none;
+    margin: 5px 5px 0;
+    font-size: 15px;
+    font-style: normal;
+    color: #ccc
+  }
+
+.grid-style ul li:first-child {
+    margin-left: 0
+  }
+
+.grid-style ul.colors li {
+    width: 15px;
+    height: 15px
+  }
+
+.grid-style ul.colors li:nth-child(1) {
+    background: #4A148C
+  }
+
+.grid-style ul.colors li:nth-child(2) {
+    background: #F50057
+  }
+
+.grid-style ul.colors li:nth-child(3) {
+    background: #536DFE
+  }
+
+.grid-style ul.colors li:nth-child(4) {
+    background: #388E3C
+  }
+
+.grid-style ul.colors li:nth-child(5) {
+    background: #FF6D00
+  }
+
+.grid-style .btn {
+    display: block;
+    padding: 5px;
+    color: #fff;
+    margin: 10px 0 0;
+    width: 100%;
+    font-size: 13px;
+    border-radius: 2px
+  }
+
+.grid-style .specifies .list-group{
+    overflow-y: auto;
+    height: 258px;
+  }
+
+.grid-style .list-group .btn .badge {
+    margin-left: 5px;
+    position: relative;
+    top: -1px;
+}
+
+.grid-style a {
+  color: white;
+}
+.grid-style a:hover {
+  color: white;
+}
