@@ -16,11 +16,12 @@ const processRelease = async (integration) => {
     const { anime, episode } = integration
     let animeExternal
 
+    const uri = process.env.ANIME_INFO_API_URL + '?q=' + encodeURI(integration.anime) 
     try {
-        const animeExternalList = await fetch(process.env.ANIME_INFO_API_URL + '?q=' + encodeURI(integration.anime)).then(res => res.json())
+        const animeExternalList = await fetch(uri).then(res => res.json())
         animeExternal = animeExternalList[0]        
     } catch (error) {
-        console.log(error)    
+        console.log(uri, error)     
     }
 
     if (!animeExternal) {
