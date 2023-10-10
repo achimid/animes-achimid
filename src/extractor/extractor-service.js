@@ -51,7 +51,7 @@ const execution = async () => {
         const body = {
             "url": sub.url,
             "script": sub.script,
-            "callbackUrl": "http://192.168.0.101:8080/api/v1/integration/callback",
+            "callbackUrl": process.env.CALLBACK_URL,
             "ref": sub.name,
             "config": {
               "bypassCSP": true,
