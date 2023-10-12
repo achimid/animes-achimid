@@ -20,8 +20,10 @@ router.post('/callback', async (req, res) => {
         return console.error("Nenhum retorno na execução do script", req.body)        
     }
 
-    queue.push(itens)
-    startIntegration()    
+    integrationService.createFromList(itens)
+
+    // queue.push(itens)
+    // startIntegration()    
 
     statusService.updateStatus(request.ref, request.url, true)    
 })

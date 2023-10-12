@@ -12,28 +12,28 @@ const findLast = releaseRepository.findLast
 const findByQuery = releaseRepository.findByQuery
 
 const processRelease = async (integration) => {
-    
+
     const { anime, episode } = integration
     let animeExternal
 
-    const uri = process.env.ANIME_INFO_API_URL + '?q=' + encodeURI(integration.anime) 
+    const uri = process.env.ANIME_INFO_API_URL + '?q=' + encodeURI(integration.anime)
     try {
         const animeExternalList = await fetch(uri).then(res => res.json())
-        animeExternal = animeExternalList[0]        
+        animeExternal = animeExternalList[0]
     } catch (error) {
-        console.log(uri, error)     
+        console.log(uri, error)
     }
 
     if (!animeExternal) {
         console.error('Erro on find anime... ', integration.anime)
         return
     }
-    
-    console.log('-----------', animeExternal.name, anime)
+
+    // console.log('-----------', animeExternal.name, anime)
 
     // const animeId = (await animeService.findByAnimeName(anime))._id.toString()
     // const release = await releaseRepository.findByAnimeIdAndEpisode(animeId, episode)
-    
+
     const release = await releaseRepository.findByAnimeIdAndEpisode(animeExternal._id, episode)
 
     if (!release) return createFromIntegration(integration, animeExternal).then(pushService.notifyAnime)
@@ -41,7 +41,7 @@ const processRelease = async (integration) => {
     if (!alreadyHasSource(release, integration)) {
         return updateFromIntegration(release, integration).then(pushService.notifyAnime)
     }
-    
+
     console.log(`Discarded integration event. anime=${anime} animeFound=${release.anime.name} episode=${episode}`)
 }
 
@@ -64,9 +64,9 @@ const updateFromIntegration = async (release, i) => {
         if (release.mirrors.length <= 1 && i.data.mirrors.length > 0) {
             for (let j = 0; j < i.data.mirrors.length; j++) {
                 const mirror = i.data.mirrors[j];
-                
+
                 if (release.mirrors.filter(m => m.description == mirror.description).length == 0) {
-                    release.mirrors.push(mirror)    
+                    release.mirrors.push(mirror)
                 }
             }
         }
@@ -79,7 +79,7 @@ const updateFromIntegration = async (release, i) => {
 
 const createFromIntegration = async (i, animeExternal) => {
     console.log(`Creating new release. anime=${i.anime} episode=${i.episode}`)
-    
+
     // const anime = await animeService.findByAnimeName(i.anime)
     // anime.source = undefined
 

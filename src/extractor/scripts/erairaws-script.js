@@ -4,9 +4,9 @@ const episodes = [...document.querySelectorAll('tr')].slice(1).slice(0, 20).reve
 for (let i = 0; i < episodes.length; i++) {
     const $episode = episodes[i]
 
-    const preTitle = $episode.innerText.split('[1080p]')[0].replace('[Erai-raws]','').trim()
+    const preTitle = $episode.innerText.split('[Erai-raws]')[1].split('[1080p]')[0].trim()
     const url = $episode.querySelector('td:nth-child(2) a').href
-    const anime = preTitle.split('-').slice(0, -1).join('-').trim()
+    const anime = preTitle.replace('\n','').split('-').slice(0, -1).join('-').trim()
     const episode = parseInt(preTitle.split('-').splice(-1))
     const title = `${anime} - Episódio ${episode}`
 
