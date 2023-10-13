@@ -19,13 +19,14 @@ router.post('/callback', async (req, res) => {
         statusService.updateStatus(request.ref, request.url, false)
         return console.error("Nenhum retorno na execução do script", req.body)        
     }
+    
+    statusService.updateStatus(request.ref, request.url, true)    
 
-    integrationService.createFromList(itens)
+    await integrationService.createFromList(itens)
 
     // queue.push(itens)
     // startIntegration()    
 
-    statusService.updateStatus(request.ref, request.url, true)    
 })
 
 const integrate = async (itens) => {    

@@ -30,7 +30,7 @@ const getSubscribers = () => {
         { useProxy: false, skipImage: true, url: "https://animetvonline.cx/", script: readScript("animetv-script.js"), name: "Anime TV"},
         { useProxy: false, skipImage: true, url: "https://animesgames.net/lancamentos", script: readScript("animesgames-script.js"), name: "Animes Games"},
         { useProxy: false, skipImage: true, url: "https://animesflix.net/", script: readScript("animesflix-script.js"), name: "Animes Flix"},
-        { useProxy: false, skipImage: true, url: "https://subanimes.pro/lancamentos/", script: readScript("subanimes-script.js"), name: "Sub Animes"},
+        { useProxy: false, skipImage: true, url: "https://subanimestv.com/lancamentos/", script: readScript("subanimes-script.js"), name: "Sub Animes"},
         
         // { useProxy: false, skipImage: true, url: "https://animesonlinecc.to/episodio/", script: readScript("animesonlinecc-script.js"), name: "Animes Online CC"},
         // { useProxy: false, skipImage: true, url: "https://ninjinanime.com/", script: readScript("ninjinanimes-script.js"), name: "Ninjin Anime (ESP)"},

@@ -24,9 +24,14 @@ const processRelease = async (integration) => {
         console.log(uri, error)
     }
 
-    if (!animeExternal) {
-        console.error('Erro on find anime... ', integration.anime)
-        return
+    if (!animeExternal || animeExternal.name == undefined) {
+        const animeExternalList = await fetch(uri).then(res => res.json())
+        animeExternal = animeExternalList[0]
+
+        if (!animeExternal || animeExternal.name == undefined) {
+            console.error('Erro on find anime... ', integration.anime)
+            return
+        }
     }
 
     // console.log('-----------', animeExternal.name, anime)
