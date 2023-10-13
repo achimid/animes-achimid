@@ -200,11 +200,11 @@ const render = (releases, animes) => {
   
 }
 
-const renderAnimes = (json, width = isListDisplay() ? "146px" : "210px") => {
+const renderAnimes = (json, width = isListDisplay() ? "146px" : "210px", height = isListDisplay() ? "240px" : "290px" ) => {
   return json.map(item => {
     return `
-        <figure class="snip1577" style="width: ${width}">
-          <img src="${!!item.anime.image ? item.anime.image : '/img/bg.webp' }" alt="${item.anime.name}" />
+        <figure class="snip1577" style="width: ${width}; height: ${height};">
+          <img src="${!!item.anime.image ? item.anime.image : '/img/bg.webp' }" alt="${item.anime.name}" style="width: ${width}; height: ${height};" />
           <figcaption>
             <h4>Epi ${item.episode}</h4>
             <h3>${item.anime.name}</h3>                      
