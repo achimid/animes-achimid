@@ -2,10 +2,9 @@ const fetch = require('node-fetch')
 
 const Release = require('./release-model')
 const pushService = require('../push/push-service')
-const animeService = require('../anime/anime-service')
+const animeInfoService = require('../anime-info/anime-info-service')
 const statusService = require('../status/status-service')
 const releaseRepository = require('./release-repository')
-const animeModel = require('../anime/anime-model')
 
 const findLast = releaseRepository.findLast
 
@@ -14,30 +13,12 @@ const findByQuery = releaseRepository.findByQuery
 const processRelease = async (integration) => {
 
     const { anime, episode } = integration
-    let animeExternal
-
-    const uri = process.env.ANIME_INFO_API_URL + '?q=' + encodeURI(integration.anime)
-    try {
-        const animeExternalList = await fetch(uri).then(res => res.json())
-        animeExternal = animeExternalList[0]
-    } catch (error) {
-        console.log(uri, error)
-    }
+    const animeExternal = await animeInfoService.findAnimeInfoByQuery(integration.anime)
 
     if (!animeExternal || animeExternal.name == undefined) {
-        const animeExternalList = await fetch(uri).then(res => res.json())
-        animeExternal = animeExternalList[0]
-
-        if (!animeExternal || animeExternal.name == undefined) {
-            console.error('Erro on find anime... ', integration.anime)
-            return
-        }
+        console.error('Erro on find anime... ', integration.anime)
+        return
     }
-
-    // console.log('-----------', animeExternal.name, anime)
-
-    // const animeId = (await animeService.findByAnimeName(anime))._id.toString()
-    // const release = await releaseRepository.findByAnimeIdAndEpisode(animeId, episode)
 
     const release = await releaseRepository.findByAnimeIdAndEpisode(animeExternal._id, episode)
 

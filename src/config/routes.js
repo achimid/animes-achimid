@@ -4,6 +4,7 @@ const push = require('../push/push-controller')
 const user = require('../user/user-controller')
 const authController = require('../auth/auth-controller')
 const anime = require('../anime/anime-controller')
+const animeInfo = require('../anime-info/anime-info-controller')
 const integration = require('../integration/integration-controller')
 
 const { errorHandler } = require('./error-handler')
@@ -19,6 +20,7 @@ module.exports = (app) => {
 
     app.use(`${prefix}`, healthcheck)
     app.use(`${prefix}/home`, home)
+    app.use(`${prefix}/anime-info`, animeInfo)
     app.use(`${prefix}/anime`, auth, anime)
     app.use(`${prefix}/push`, auth, push)
     app.use(`${prefix}/user`, auth, user)
