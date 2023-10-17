@@ -33,6 +33,12 @@ router.get('/schedule',  async (req, res) => {
 })
 
 
+router.get('/anime/:id',  async (req, res) => {
+    return releaseService.findByAnimeId(req.params.id)
+        .then(releases => res.status(OK).json(releases))
+        .catch(res.onError)
+})
+
 
 
 module.exports = router

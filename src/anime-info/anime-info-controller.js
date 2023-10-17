@@ -1,12 +1,18 @@
 const router = require('express').Router()
 const { OK } = require('http-status-codes').StatusCodes
 
-const {sync} = require('./anime-info-service')
+const animeInfoService = require('./anime-info-service')
 
 router.get('/sync', async (req, res) => {
     res.status(OK).send()
 
-    sync()
+    animeInfoService.sync()
+})
+
+router.get('/show/:id', async (req, res) => {
+    return animeInfoService.findAnimeInfoById(req.params.id)
+        .then(json => res.status(OK).json(json))
+        .catch(res.onError)
 })
 
 module.exports = router
