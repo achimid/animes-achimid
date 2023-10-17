@@ -34,7 +34,7 @@ const findByQuery = async (query, skip = 0) => {
     }
 }
 
-const findByAnimeId = async (id) => Release.find({'anime._id': id}).lean()
+const findByAnimeId = async (id) => Release.find({'anime._id': id}).sort({ episode: 1 }).lean()
 
 const save = async (release) => {
     return release.save()
