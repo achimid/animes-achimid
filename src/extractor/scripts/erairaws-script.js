@@ -1,6 +1,6 @@
 const posts = []
 
-const episodes = [...document.querySelectorAll('tr')].slice(1).slice(0, 20).reverse()
+const episodes = [...document.querySelectorAll('tr')].slice(1).reverse()
 for (let i = 0; i < episodes.length; i++) {
     const $episode = episodes[i]
 
