@@ -24,4 +24,32 @@ function switchTheme(e) {
 }
 toggleSwitch.addEventListener('change', switchTheme, false);
 
+function getCookie(name) {
+    const value = `; ${document.cookie}`;
+    const parts = value.split(`; ${name}=`);
+    if (parts.length === 2) return parts.pop().split(';').shift();
+}
 
+function isAuthenticated() {
+    return true
+}
+
+function registerUser() {
+    let id = localStorage.getItem('user_id')
+    if (id) {
+        fetch(`/api/v1/auth/user/count/${id}`)    
+        return id
+    }
+    localStorage.setItem('user_id', `${Date.now()}-${Math.floor(Math.random() * 1000000000000000)}`)
+    id = localStorage.getItem('user_id')
+
+    fetch(`/api/v1/auth/user/count/${id}`)  
+
+    return id
+}
+
+function onLoad() {
+    registerUser()
+}
+
+onLoad()

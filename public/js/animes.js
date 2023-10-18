@@ -1,12 +1,24 @@
+function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+}
+
 function onLoad() {
-    fetch("/api/v1/home/list/names").then(res => res.json()).then(animes => {
-        console.log(animes)
+    fetch("/api/v1/home/list/names").then(res => res.json()).then(animesRaw => {
+        const animes = animesRaw.map(a => {
+            return {
+                anime: {
+                    ...a.anime,
+                    name: capitalizeFirstLetter(a.anime.name)
+                }
+            }
+        })
+
         animes.sort((a, b) => {				
             if (a.anime.name < b.anime.name) return -1;
             if (a.anime.name > b.anime.name) return 1;
             return 0;
         })			
-        console.log(animes)
+        
         let last
         document.querySelector('.all-shows').innerHTML = animes.map(a => {
             let html = ''

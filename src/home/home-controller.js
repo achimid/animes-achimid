@@ -46,5 +46,19 @@ router.get('/list/names', async (req, res) => {
         .catch(res.onError)
 })
 
+router.post('/message/send', async (req, res) => {
+    fetch('https://telegram-notify-api.achimid.com.br/api/v1/message/send', {
+        method: 'POST',
+        body: JSON.stringify({
+            token: '5806553287:AAFtDgYzUWMgJvO-Slotz19GyQEPxYa4SHg',
+            id: '128348430',
+            text: req.body.message
+        }),
+        headers: {'Content-Type': 'application/json'}
+    }).catch(console.error)    
+
+    res.send()
+})
+
 
 module.exports = router
