@@ -36,6 +36,11 @@ const findByQuery = async (query, skip = 0) => {
 
 const findByAnimeId = async (id) => Release.find({'anime._id': id}).sort({ title: 1 }).lean()
 
+const findAnimeNames = async () => {
+    const ids = await Release.distinct("anime._id").lean()
+    return Promise.all(ids.map((id) => Release.findOne({'anime._id': id}).select('anime._id anime.name anime.image').lean()))
+}
+
 const save = async (release) => {
     return release.save()
 }
@@ -51,5 +56,6 @@ module.exports = {
     findLast,
     findByQuery,
     findByAnimeId,
+    findAnimeNames,
     findByAnimeIdAndEpisode
 }

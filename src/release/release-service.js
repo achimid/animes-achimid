@@ -1,5 +1,3 @@
-const fetch = require('node-fetch')
-
 const Release = require('./release-model')
 const pushService = require('../push/push-service')
 const animeInfoService = require('../anime-info/anime-info-service')
@@ -11,6 +9,8 @@ const findLast = releaseRepository.findLast
 const findByQuery = releaseRepository.findByQuery
 
 const findByAnimeId = releaseRepository.findByAnimeId
+
+const findAnimeNames = releaseRepository.findAnimeNames
 
 const processRelease = async (integration) => {
 
@@ -87,5 +87,6 @@ module.exports = {
     findLast,
     findByQuery,
     findByAnimeId,
+    findAnimeNames,
     processRelease
 }

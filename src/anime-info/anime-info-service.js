@@ -69,7 +69,6 @@ setInterval(() => { cache = {}}, 1000 * 60 * 3)
 
 module.exports = {
     sync,
-    findAnimeInfoByQuery,
-    findAnimeInfoById
-
+    findAnimeInfoById,
+    findAnimeInfoByQuery
 }

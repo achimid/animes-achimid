@@ -40,5 +40,11 @@ router.get('/anime/:id',  async (req, res) => {
 })
 
 
+router.get('/list/names', async (req, res) => {
+    return releaseService.findAnimeNames()
+        .then(json => res.status(OK).json(json))
+        .catch(res.onError)
+})
+
 
 module.exports = router

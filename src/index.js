@@ -18,6 +18,7 @@ app.use(cors())
 
 app.use(compression())
 app.use(express.json())
+app.use(express.urlencoded())
 app.use(cookieParser())
 app.disable('x-powered-by')
 
@@ -26,7 +27,7 @@ app.use(express.static('public', { maxAge, extensions: ['html', 'xml'] }))
 databaseInit()
     .then(() => configurePassport(app))
     .then(() => routes(app))
-    .then(extractor.start)
+    // .then(extractor.start)
 
 
 app.listen(process.env.PORT)
