@@ -22,7 +22,7 @@ async function extract() {
         const $episode = episodes[i]
 
         const url = $episode.querySelector('a').href
-        const anime = $episode.querySelector("h4").innerText
+        const anime = $episode.querySelector("h4").innerText.replace(/\([^()]*\)/g, '')
         const episode = parseInt($episode.querySelector("[class^='release-episode-card-media-type']").innerText.match(/\d+/g))
         const title = `${anime} - Episódio ${episode}`
 
