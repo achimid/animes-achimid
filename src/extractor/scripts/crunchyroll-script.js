@@ -1,43 +1,45 @@
+
+
+function sleep(ms) {
+    return new Promise((resolve) => {
+        setTimeout(resolve, ms);
+    });
+}
+
 async function extract() {
 
-    const episodes = [...document.querySelectorAll('.releases li') ].reverse()
+    window.scrollTo(0, document.body.scrollHeight);
+    await sleep(1000)
+    window.scrollTo(0, document.body.scrollHeight);
+    await sleep(1000)
+    window.scrollTo(0, document.body.scrollHeight);
+    await sleep(1000)
+
+    const posts = []
+
+    const episodes = [...document.querySelector("[class^='release-episodes-section']").querySelectorAll("[class^='release-episode-card-body'")].reverse()
     for (let i = 0; i < episodes.length; i++) {
         const $episode = episodes[i]
 
-        const url = $episode.querySelector('.season-name a').href
-        const prepareAnime = $episode.querySelector('.season-name').innerText.replace('(PORTUGUESE DUB)', '').replace('(JAPANESE AUDIO)', '')
-        const anime = prepareAnime[0].toUpperCase() + prepareAnime.substring(1).toLowerCase();
-        const episode = parseInt($episode.querySelector('.availability').innerText.match(/\d+/g))
+        const url = $episode.querySelector('a').href
+        const anime = $episode.querySelector("h4").innerText
+        const episode = parseInt($episode.querySelector("[class^='release-episode-card-media-type']").innerText.match(/\d+/g))
         const title = `${anime} - Episódio ${episode}`
-        
+
+        if (anime.toUpperCase().indexOf('(DUB)') >= 0) continue;
+
         const post = {
             from: "Crunchyroll",
             url,
             title,
             anime,
-            episode
+            episode,
         }
-        
         console.log(post)
-
-        var myHeaders = new Headers();
-        myHeaders.append("Content-Type", "application/json");
-
-        var raw = JSON.stringify(post);
-
-        var requestOptions = {
-            method: 'POST',
-            headers: myHeaders,
-            body: raw,
-            redirect: 'follow'
-        };
-
-        await fetch("https://anifan.com.br/api/v1/integration", requestOptions)
-            .then(response => response.text())
-            .then(result => console.log(result))
-            .catch(error => console.log('error', error));
-        
+        posts.push(post)
     }
+
+    return posts
 }
 
 extract()

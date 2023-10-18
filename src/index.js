@@ -26,7 +26,7 @@ app.use(express.static('public', { maxAge, extensions: ['html', 'xml'] }))
 databaseInit()
     .then(() => configurePassport(app))
     .then(() => routes(app))
-    // .then(extractor.start)
+    .then(extractor.start)
 
 
 app.listen(process.env.PORT)
