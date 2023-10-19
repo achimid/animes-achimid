@@ -33,18 +33,10 @@ Agregador dos lançamento de animes da temporada para Fansubs, Sites de animes e
 
 ## Sugestões e melhorias
 
-[x] Uma ideia, colocar em algum lugar do site, talvez em baixo da sessão de monitoramento uma mensagem do tipo: Conhece algum outro site que não estamos monitorando? Contribua aqui (meio de informar).
-
-[ ] Monitoramento do Crunchyroll, dps de 1 semana dá para ver de graça
-
-[ ] Informação do horário aproximado de lançamento do anime de forma geral ou de cada episódio e aí a própria pessoa faz a estimativa
-
 [ ] Deixa seu feedback aqui
 
 [ ] Sessão de comentários na página de cada anime para o pessoal interagir? Ou uma sessão de comentário para o site todo? Disqus?
 
-[ ]Add scraping para o Info Anime sobre Fan Subs
-
 [ ] Submonitoramento na página de anime para selecionar apenas alguns sites a serem acompanhados
 
-[ ] Exibição baseada na linguagem selecionada
+[ ] Corrigir descrição para português... ou versão alternativas.  
