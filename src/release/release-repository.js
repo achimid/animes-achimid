@@ -34,7 +34,7 @@ const findByQuery = async (query, skip = 0) => {
     }
 }
 
-const findByAnimeId = async (id) => Release.find({'anime._id': id}).sort({ title: 1 }).lean()
+const findByAnimeId = async (id) => Release.find({'anime._id': id}).sort({ title: -1 }).lean()
 
 const findAnimeNames = async () => {
     const ids = await Release.distinct("anime._id").lean()
