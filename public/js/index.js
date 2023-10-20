@@ -252,7 +252,11 @@ function searchSources(s, id) {
     document.querySelector('#inputSearch').value = s
     $('#formSearch').trigger("submit")
   } else {
-    window.location = '/info?id=' + id
+    if (this.event.ctrlKey) {
+      window.open('/info?id=' + id, '_blank').focus();
+    } else {
+      window.location = '/info?id=' + id
+    }
   }
 
 
