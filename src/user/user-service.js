@@ -1,6 +1,8 @@
 const UserModel = require('./user-model')
 const userRepository = require('./user-repository')
 
+const save = userRepository.save
+
 const findById = async (id) => {
     return userRepository.findById(id)
 }
@@ -17,9 +19,19 @@ const register = async (user, subscrption) => {
     return userRepository.save(user)
 }
 
-const subscribe = async (user, animeId) => {
+const subscribe = async (userId, animeId) => {
+    const user = await userRepository.findById(userId)
+
     user.animeToNotify.push(animeId)
     user.animeToNotify = [...new Set(user.animeToNotify)]
+
+    return userRepository.save(user)
+}
+
+const unsubscribe = async (userId, animeId) => {
+    const user = await userRepository.findById(userId)
+
+    user.animeToNotify = user.animeToNotify.filter(id => id != animeId)    
 
     return userRepository.save(user)
 }
@@ -29,8 +41,10 @@ const findByAnimeToNotify = async (animeId) => {
 }
 
 module.exports = {
+    save,
     create,
     subscribe,
+    unsubscribe,
     findById,
     register,
     findByAnimeToNotify

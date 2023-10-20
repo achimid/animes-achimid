@@ -30,6 +30,27 @@ function getCookie(name) {
     if (parts.length === 2) return parts.pop().split(';').shift();
 }
 
+
+async function fetchPost(uri, body = {}) {
+    return fetch(uri, {
+        method: 'POST',
+        headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json',
+            'X-Animes-Achimid-User-ID': localStorage.getItem('user_id')
+        },
+        body: JSON.stringify(body)
+    })    
+}
+
+async function fetchGet(uri) {
+    return fetch(uri, {
+        method: 'GET',
+        headers: {'X-Animes-Achimid-User-ID': localStorage.getItem('user_id')}
+    })    
+}
+
+
 function isAuthenticated() {
     return true
 }
@@ -37,16 +58,22 @@ function isAuthenticated() {
 function registerUser() {
     let id = localStorage.getItem('user_id')
     if (id) {
-        fetch(`/api/v1/auth/user/count/${id}`)    
+        fetchGet(`/api/v1/user`).then(res => res.json()).then(json => localStorage.setItem('user', JSON.stringify(json)))
         return id
     }
+
     localStorage.setItem('user_id', `${Date.now()}-${Math.floor(Math.random() * 1000000000000000)}`)
     id = localStorage.getItem('user_id')
 
-    fetch(`/api/v1/auth/user/count/${id}`)  
+    fetchPost(`/api/v1/user/anonymous`).then(res => res.json()).then(json => localStorage.setItem('user', JSON.stringify(json)))
 
     return id
 }
+
+function getUser() {
+    return JSON.parse(localStorage.getItem('user'))
+}
+
 
 function onLoad() {
     registerUser()

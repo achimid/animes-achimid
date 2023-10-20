@@ -1,6 +1,11 @@
 const mongoose = require('mongoose')
 
-const schema = mongoose.Schema({    
+const schema = mongoose.Schema({   
+    userId: {
+        type: String,
+        required: true,
+        unique : true
+    } ,
     gAuth: { 
         type: Object,
         required: false

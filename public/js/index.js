@@ -162,6 +162,22 @@ const renderAnimes = (json) => {
   }).join('')
 }
 
+const renderBell = (item) => {
+  if (!getUser().animeToNotify.includes(item.anime._id)) {
+    return `
+      <a href="#" target="_blank" onclick="notifyAnime('${item.anime._id}')"  class="cls-notify ${isAuthenticated() ? '' : 'cls-notify-not-logged'}">
+        <svg width="21" height="21" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M18.1336 11C18.7155 16.3755 21 18 21 18H3C3 18 6 15.8667 6 8.4C6 6.70261 6.63214 5.07475 7.75736 3.87452C8.88258 2.67428 10.4087 2 12 2C12.3373 2 12.6717 2.0303 13 2.08949" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/> <path d="M19 8C20.6569 8 22 6.65685 22 5C22 3.34315 20.6569 2 19 2C17.3431 2 16 3.34315 16 5C16 6.65685 17.3431 8 19 8Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/> <path d="M13.73 21C13.5542 21.3031 13.3019 21.5547 12.9982 21.7295C12.6946 21.9044 12.3504 21.9965 12 21.9965C11.6496 21.9965 11.3054 21.9044 11.0018 21.7295C10.6982 21.5547 10.4458 21.3031 10.27 21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/> </svg>
+      </a>  
+    `
+  } else {
+    return `
+    <a href="#" target="_blank" onclick="notifyAnimeCancel('${item.anime._id}')"  class="cls-notify ${isAuthenticated() ? '' : 'cls-notify-not-logged'}">      
+      <svg xmlns="http://www.w3.org/2000/svg" width="21" height="21" viewBox="0 0 14 14"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" d="m.5 13.5l13-13M6 13.5h2M8.73.84A4.51 4.51 0 0 0 2.5 5v2.5M3 11h10.5a2 2 0 0 1-2-2V5a4.42 4.42 0 0 0-.5-2"/></svg>
+    </a>  
+  `
+  }
+}
+
 const renderReleases = (json) => {
   return json.map(item => {
     return `
@@ -171,9 +187,7 @@ const renderReleases = (json) => {
           </td>                                                                            
           <td class="release-item-time">
             <a href="#" target="_blank" onclick="toggleRelease('${item._id}')" class="badge badge-front badge-new hidden-xs">${item.title.split(' - ')[0]}</a>
-            <a href="#" target="_blank" class="cls-notify ${isAuthenticated() ? '' : 'cls-notify-not-logged'}">
-              <svg width="21" height="21" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M18.1336 11C18.7155 16.3755 21 18 21 18H3C3 18 6 15.8667 6 8.4C6 6.70261 6.63214 5.07475 7.75736 3.87452C8.88258 2.67428 10.4087 2 12 2C12.3373 2 12.6717 2.0303 13 2.08949" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/> <path d="M19 8C20.6569 8 22 6.65685 22 5C22 3.34315 20.6569 2 19 2C17.3431 2 16 3.34315 16 5C16 6.65685 17.3431 8 19 8Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/> <path d="M13.73 21C13.5542 21.3031 13.3019 21.5547 12.9982 21.7295C12.6946 21.9044 12.3504 21.9965 12 21.9965C11.6496 21.9965 11.3054 21.9044 11.0018 21.7295C10.6982 21.5547 10.4458 21.3031 10.27 21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/> </svg>
-            </a>                  
+            ${renderBell(item)}     
           </td>                                                                            
         </tr>
       <tr>
@@ -192,13 +206,13 @@ const renderStatusSites = (status) => {
     return `
       <tr>
         <td class="news-title">
-          <a href="#" target="_blank" class="cls-notify ${isAuthenticated() ? '' : 'cls-notify-not-logged'}">
+          <a href="#" target="_blank" onclick="notifySite('${s.name}')" class="cls-notify ${isAuthenticated() ? '' : 'cls-notify-not-logged'}">
             <svg width="21" height="21" stroke-width="1.5" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"> <path d="M18.1336 11C18.7155 16.3755 21 18 21 18H3C3 18 6 15.8667 6 8.4C6 6.70261 6.63214 5.07475 7.75736 3.87452C8.88258 2.67428 10.4087 2 12 2C12.3373 2 12.6717 2.0303 13 2.08949" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/> <path d="M19 8C20.6569 8 22 6.65685 22 5C22 3.34315 20.6569 2 19 2C17.3431 2 16 3.34315 16 5C16 6.65685 17.3431 8 19 8Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/> <path d="M13.73 21C13.5542 21.3031 13.3019 21.5547 12.9982 21.7295C12.6946 21.9044 12.3504 21.9965 12 21.9965C11.6496 21.9965 11.3054 21.9044 11.0018 21.7295C10.6982 21.5547 10.4458 21.3031 10.27 21" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"/> </svg>
           </a>          
           <a href="${s.url}">${s.name}</a>
         </td>
         <td class="news-date">${s.status && !!s.lastRelease ? '✔' : ''} ${s.lastRelease == undefined ? '--' : s.lastRelease} 
-          <a href="#" target="_blank" class="cls-notfy-anime" onclick="searchSources('${s.name}')">
+          <a href="#" target="_blank" onclick="searchSources('${s.name}')">
             <svg  width="21" height="21" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"> <path fill="var(--ci-primary-color, currentColor)" d="M479.6,399.716l-81.084-81.084-62.368-25.767A175.014,175.014,0,0,0,368,192c0-97.047-78.953-176-176-176S16,94.953,16,192,94.953,368,192,368a175.034,175.034,0,0,0,101.619-32.377l25.7,62.2L400.4,478.911a56,56,0,1,0,79.2-79.195ZM48,192c0-79.4,64.6-144,144-144s144,64.6,144,144S271.4,336,192,336,48,271.4,48,192ZM456.971,456.284a24.028,24.028,0,0,1-33.942,0l-76.572-76.572-23.894-57.835L380.4,345.771l76.573,76.572A24.028,24.028,0,0,1,456.971,456.284Z" class="ci-primary"/> </svg>
           </a>
         </td>

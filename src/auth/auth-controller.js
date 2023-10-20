@@ -17,26 +17,5 @@ router.get("/google", passport.authenticate("google", { scope: ["email", "profil
 
 router.get("/google/callback", passport.authenticate('google', { failureRedirect: '/', session: false }), onAuthenticateSuccess)
   
-router.get("/user/count/:id", (req, res) => {
-    res.send()
-
-    const id = req.params.id
-    userCounter[id] = (userCounter[id] || 0) + 1
-})
-
-const userCounter = {}
-
-setInterval(() => {
-    const users = Object.keys(userCounter).map(function(key){ return userCounter[key] })
-    const views = calculateSum(users)
-
-    console.log({users: users.length, views})
-},  5 * 60 * 1000)
-
-function calculateSum(array) {
-    return array.reduce((accumulator, value) => {
-      return accumulator + value;
-    }, 0);
-}
 
 module.exports = router

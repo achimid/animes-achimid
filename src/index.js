@@ -28,5 +28,4 @@ databaseInit()
     .then(() => routes(app))
     .then(extractor.start)
 
-
 app.listen(process.env.PORT)

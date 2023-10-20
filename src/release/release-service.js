@@ -68,9 +68,6 @@ const updateFromIntegration = async (release, i) => {
 const createFromIntegration = async (i, animeExternal) => {
     console.log(`Creating new release. anime=${i.anime} episode=${i.episode}`)
 
-    // const anime = await animeService.findByAnimeName(i.anime)
-    // anime.source = undefined
-
     statusService.updateLastRelease(i.from)
 
     return releaseRepository.save(new Release({

@@ -20,8 +20,8 @@ module.exports = (app) => {
     app.use(`${prefix}`, healthcheck)
     app.use(`${prefix}/home`, home)
     app.use(`${prefix}/anime-info`, animeInfo)
-    app.use(`${prefix}/push`, auth, push)
-    app.use(`${prefix}/user`, auth, user)
+    app.use(`${prefix}/push`, push)
+    app.use(`${prefix}/user`, user)
 
     app.use(`${prefix}/auth`, authController)
     app.use(`${prefix}/integration`, integration)
