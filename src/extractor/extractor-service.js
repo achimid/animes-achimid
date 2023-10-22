@@ -104,7 +104,7 @@ const start = async () => {
         await executionSlow()
         await executionMedium()
         await executionFast()
-        setInterval(executionSlow, 1000 * 60 * 15)
+        setInterval(executionSlow, 1000 * 60 * 12)
         setInterval(executionMedium, 1000 * 60 * 7)
         setInterval(executionFast, 1000 * 60 * 3)
     }
