@@ -42,7 +42,7 @@ const sendPushWellcomeTest = (subscription) => {
     const payload = JSON.stringify({ 
         title: 'Animes Achimid - Bem vindo!', 
         options: {
-            body: 'Obrigado com nos visitar.\n\nOs próximos lançamentos serão enviados em forma de notificação para esse dispositivo.', 
+            body: 'Obrigado por nos visitar.\n\nOs próximos lançamentos serão enviados em forma de notificação para esse dispositivo.', 
             data: { url: '/' },
             icon: '/favicon/favicon-32x32.png'
         }

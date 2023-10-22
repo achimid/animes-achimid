@@ -40,3 +40,41 @@ Agregador dos lançamento de animes da temporada para Fansubs, Sites de animes e
 [ ] Submonitoramento na página de anime para selecionar apenas alguns sites a serem acompanhados
 
 [ ] Corrigir descrição para português... ou versão alternativas.  
+
+[ ] Criar pagina para listar os sites monitorados. Junto com o formulário de sugestão
+
+[ ] Criar uma pagina para mostrar os animes que vocês esta seguindo/notificando.
+
+[ ] Melhora script de extração do MAL e utilizar na busca
+
+[ ] Implementar um novo integração para busca de informações de anime
+
+[ ] Implementar tradução automatica das descrições
+
+[ ] Criar um front-end do anime-info-api baseado no front do Jikan, bem simples. 
+
+[ ] Adicionar mais sites para monitorar.
+    - https://animexhd.net/
+    - https://animeq.blog/98535/
+    - https://animetvonline.cx/
+    - https://animes.vision/
+    - https://alqanime.net/
+    - https://www.animesonline22.com/
+    - https://www7.gogoanime.me/
+
+[ ] Corrigir a versão da descrição para portugues.
+
+[ ] Criar versões de site em Portugues e em Ingles.
+
+[ ] Corrigir bug do sino de notificação que não atualiza ao clicar só com f5.
+
+[ ] Adicionar mais informações nos script, como linguagens, temporada, tipo dublado ou legendado para no futuro utilizar melhor.
+
+[ ] Criar pagina ou aba de minhas notificações... pode ser junto com a aba de animes seguindo/notificando.
+
+[ ] Adicionar pagina de lançamentos/calendario? AnimesSync?
+
+[ ] Corrigir algumas imagens e qualidade.
+
+[ ] Criar endpoint para sync de anime especifico, ou botão no proprio site (isAdmin)
+

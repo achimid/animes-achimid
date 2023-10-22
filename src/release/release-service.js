@@ -30,7 +30,8 @@ const processRelease = async (integration) => {
         return updateFromIntegration(release, integration).then(pushService.notifyAnime)
     }
 
-    console.log(`Discarded integration event. anime=${anime} animeFound=${release.anime.name} episode=${episode}`)
+    if (process.env.LOG_DISCATED == 'true')
+        console.log(`Discarded integration event. anime=${anime} animeFound=${release.anime.name} episode=${episode}`)
 }
 
 
