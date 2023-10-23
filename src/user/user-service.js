@@ -25,7 +25,7 @@ const subscribe = async (userId, animeId) => {
     user.animeToNotify.push(animeId)
     user.animeToNotify = [...new Set(user.animeToNotify)]
 
-    return userRepository.save(user)
+    return await userRepository.save(user)
 }
 
 const unsubscribe = async (userId, animeId) => {

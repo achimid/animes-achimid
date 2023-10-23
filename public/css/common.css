@@ -4,6 +4,7 @@
 
 .text-rigth {
   text-align: end;
+  float: right;
 }  
 
 .float-right {

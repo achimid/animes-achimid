@@ -26,6 +26,10 @@ const schema = mongoose.Schema({
         episode: { 
             type: Object,
             required: false
+        },
+        releaseTitle: { 
+            type: String,
+            required: false
         }
     }]
 }, { versionKey: false, timestamps: true })

@@ -29,7 +29,7 @@ const notifyAnime = async (release) => {
         
         sendReleasePush(user, release.title)
         
-        user.releaseNotified.push({animeId, episode})
+        user.releaseNotified.push({animeId, episode, releaseTitle: release.title})
         await userService.save(user)
     }
 }

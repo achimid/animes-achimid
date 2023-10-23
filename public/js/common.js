@@ -55,6 +55,10 @@ function isAuthenticated() {
     return true
 }
 
+function isAdmin() {
+    return localStorage.getItem('isAdmin') == 'true'
+}
+
 function registerUser() {
     let id = localStorage.getItem('user_id')
     if (id) {
