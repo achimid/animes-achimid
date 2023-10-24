@@ -117,6 +117,7 @@ const render = (releases, animes) => {
       document.querySelector("#animesList").innerHTML = renderAnimes(animes.slice(0, 8))
       document.querySelector("#section1Label").innerHTML = 'Animes'
       document.querySelector("#section2Label").innerHTML = 'Lançamentos 🔥'
+      if (isAdmin()) document.querySelector("#section2Label").innerHTML += `<a href="#" onClick="forceExtractor()">🔄</a>`
     } else {
       layoutChangeSHide()
     }
@@ -127,6 +128,7 @@ const render = (releases, animes) => {
       document.querySelector("#animesList").innerHTML = renderReleases(releases.slice(0, 5))
       document.querySelector("#section1Label").innerHTML = 'Lançamentos 🔥'
       document.querySelector("#section2Label").innerHTML = 'Animes'
+      if (isAdmin()) document.querySelector("#section2Label").innerHTML += `<a href="#" onClick="forceExtractor()">🔄</a>`
     } else {
       layoutChangeSHide()
     }
@@ -257,7 +259,6 @@ const loadStatusSites = () => {
 }
 
 $('#inputSearchSites').on('input', function () {
-  console.log(this.value)
   filterSiteStatus(this.value)
 });
 
@@ -326,22 +327,15 @@ const renderSchedule = (json) => {
   return json.map(d => {
     return `
           <tr class="schedule-widget-item">
-            <td class="schedule-widget-show">${d.title}</td>
+            <td class="schedule-widget-show">
+              <a href="/info?id=${d.anime._id}" data-preview-image="${d.anime.image}">${d.title}</a>                                    
+            </td>
             <td class="schedule-widget-time">${d.aired ? '✔' : ''} ${d.time}</td>
           </tr>
       `
   }).join('')
 }
 
-const sendMessageTelegram = (text) => {
-  fetch('/api/v1/home/message/send', {
-    method: 'POST',
-    body: JSON.stringify({
-      message: text
-    }),
-    headers: { 'Content-Type': 'application/json' }
-  })
-}
 
 
 const onSiteSugestion = () => {
@@ -364,4 +358,10 @@ const onSiteSugestion = () => {
 
     return false;
   });
+}
+
+
+function forceExtractor() {
+  this.event.preventDefault()
+  fetch('/api/v1/home/extractor/force')
 }

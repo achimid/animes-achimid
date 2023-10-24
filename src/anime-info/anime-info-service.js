@@ -24,6 +24,24 @@ const sync = async () => {
     }
 }
 
+const syncByAnimeId = async (id) => {
+    const allReleases = await releaseRepository.findAll({'anime._id': id})
+
+    for (let i = 0; i < allReleases.length; i++) {
+        console.log(`${i}/${allReleases.length}`)        
+        const release = allReleases[i];
+
+        const anime = await findAnimeInfoById(release.anime._id)
+
+        if (anime == null) continue;
+        if (JSON.stringify(anime) !== JSON.stringify(release.anime)) {
+            release.anime = anime
+            await release.save().catch(console.error)
+            console.log('Release.Anime atualizado...' + release.anime.name)
+        }        
+    }
+}
+
 const findAnimeInfoByQuery = async (query) => {
     if (cache[query] != null) return cache[query]
 
@@ -65,10 +83,11 @@ const findAnimeInfoById = async (id) => {
     return null
 }
 
-setInterval(() => { cache = {}}, 1000 * 60 * 3)
+setInterval(() => { cache = {}}, 1000 * 60 * 5)
 
 module.exports = {
     sync,
+    syncByAnimeId,
     findAnimeInfoById,
     findAnimeInfoByQuery
 }

@@ -99,11 +99,17 @@ const executionFast = async () => {
     }
 }
 
-const start = async () => {
+const execute = async () => {
     if (process.env.ENABLE_EXTRACTOR === 'true') {
         await executionSlow()
         await executionMedium()
         await executionFast()
+    }
+}
+
+const start = async () => {
+    if (process.env.ENABLE_EXTRACTOR === 'true') {
+        await execute()
         setInterval(executionSlow, 1000 * 60 * 12)
         setInterval(executionMedium, 1000 * 60 * 7)
         setInterval(executionFast, 1000 * 60 * 3)
@@ -112,5 +118,6 @@ const start = async () => {
 
 
 module.exports = {
-    start
+    start,
+    execute
 }

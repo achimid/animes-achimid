@@ -26,7 +26,7 @@ async function getNotifications() {
     }
 
 
-    document.querySelector('.all-notifications-done').innerHTML = getUser().releaseNotified.filter(n => n.releaseTitle != undefined).map(n => {
+    document.querySelector('.all-notifications-done').innerHTML = getUser().releaseNotified.filter(n => n.releaseTitle != undefined).slice(0, 25).map(n => {
         return `<p>${n.releaseTitle}</p>`
     }).join('')
 

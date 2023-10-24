@@ -4,7 +4,8 @@ const { OK } = require('http-status-codes').StatusCodes
 
 const releaseService = require('../release/release-service')
 const statusService = require('../status/status-service')
-
+const animeInfoService = require('../anime-info/anime-info-service')
+const extractorService = require('../extractor/extractor-service')
 
 
 router.get('/',  async (req, res) => {
@@ -25,12 +26,33 @@ router.get('/status',  async (req, res) => {
         .catch(res.onError)
 })
 
+let cacheSchedule
+
+setInterval(() => cacheSchedule = null, 60 * 1000 * 3)
+
 router.get('/schedule',  async (req, res) => {
+
+    if (!!cacheSchedule) return res.json(cacheSchedule)
+
     fetch("https://subsplease.org/api/?f=schedule&h=true&tz=America/Sao_Paulo")
         .then(r => r.json())
-        .then(json => res.json(json))
+        .then(enrichSchedule)
+        .then(json => { 
+            cacheSchedule = json
+            res.json(json)
+        })
         .catch(res.send)
 })
+
+const enrichSchedule = async (json) => {
+    const animeInfo = await Promise.all(json.schedule.map(async (s) => {
+        return {
+            ...s,
+            anime: await animeInfoService.findAnimeInfoByQuery(s.title)
+        }        
+    }))
+    return {schedule: animeInfo}
+}
 
 
 router.get('/anime/:id',  async (req, res) => {
@@ -58,6 +80,13 @@ router.post('/message/send', async (req, res) => {
     }).catch(console.error)    
 
     res.send()
+})
+
+
+router.get('/extractor/force', async (req, res) => {
+    res.status(OK).json()
+
+    extractorService.execute()
 })
 
 

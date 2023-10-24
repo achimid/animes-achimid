@@ -31,6 +31,17 @@ function getCookie(name) {
 }
 
 
+function sendMessageTelegram(text) {
+    fetch('/api/v1/home/message/send', {
+      method: 'POST',
+      body: JSON.stringify({
+        message: text
+      }),
+      headers: { 'Content-Type': 'application/json' }
+    })
+  }
+
+
 async function fetchPost(uri, body = {}) {
     return fetch(uri, {
         method: 'POST',

@@ -115,6 +115,10 @@ async function subscribePost(id) {
 function notifySite(site) {
     this.event.preventDefault()
     console.log(site)
+    Toastify({
+        text: `Ops... ainda não finalizamos essa funcionalidade. Será implementada em breve.`,
+        duration: 5000
+    }).showToast();
 }
 
 function notifyAnime(e, id) {
