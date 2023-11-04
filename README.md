@@ -74,3 +74,4 @@ Agregador dos lançamento de animes da temporada para Fansubs, Sites de animes e
 
 [ ] Melhorar a performance da busca de anime, criando endpoints de findById e findByQuery apenas com o minimo de informação
 
+[ ] Criar inteligência de execução dos scripts de extração. Por exemplo. Baseado nas horas dos calendários, executar o script. De madrugada diminuir a frequencia.
