@@ -70,6 +70,16 @@ function isAdmin() {
     return localStorage.getItem('isAdmin') == 'true'
 }
 
+
+const prepareAdmin = (releases) => {
+    if (isAdmin()) return releases
+  
+    return releases.map(r => {
+      return {...r, sources: r.sources.filter(res => res.title != 'AnimeX')}          
+    }).filter(r => r.sources.length > 0)
+  }
+  
+
 function registerUser() {
     let id = localStorage.getItem('user_id')
     if (id) {

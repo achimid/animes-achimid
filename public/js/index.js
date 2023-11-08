@@ -50,6 +50,7 @@ const onClean = () => {
 
     fetch("/api/v1/home")
       .then(res => res.json())
+      .then(prepareAdmin)
       .then(json => {
         renderJson(json)
         document.querySelector('#inputSearch').value = ""
@@ -61,6 +62,7 @@ const onLoadMore = () => {
   $('#load-more').click(function () {
     fetch("/api/v1/home/search?q=" + document.querySelector('#inputSearch').value + "&skip=" + (parseInt(document.querySelectorAll('#releaseList tr.new').length) + parseInt(document.querySelectorAll('#releaseList figure').length)))
       .then(res => res.json())
+      .then(prepareAdmin)
       .then(json => {
         if (isListDisplay()) {
           document.querySelector("#releaseList").innerHTML += renderReleases(json)
@@ -75,8 +77,9 @@ const onSearch = () => {
   $("#formSearch").submit(function (e) {
 
     fetch("/api/v1/home/search?q=" + document.querySelector('#inputSearch').value)
-      .then(res => res.json())
-      .then(renderJson)
+    .then(res => res.json())
+    .then(prepareAdmin)
+    .then(renderJson)
 
     return false;
   });
@@ -95,6 +98,7 @@ const renderJson = (json) => {
 const loadReleases = () => {
   fetch("/api/v1/home")
     .then(res => res.json())
+    .then(prepareAdmin)
     .then(renderJson)
     .then(() => document.querySelector('.release-item-time a').click())
 }

@@ -30,7 +30,10 @@ function onLoad() {
     let params = (new URL(document.location)).searchParams
     let id = params.get("id")
 
-    fetch("/api/v1/home/anime/" + id).then(res => res.json()).then(releases => {
+    fetch("/api/v1/home/anime/" + id)
+        .then(res => res.json())
+        .then(prepareAdmin)
+        .then(releases => {
         document.querySelector('#show-release-table').innerHTML = releases.map(r => {
             return `<tr class="new">
                         <td class="show-release-item"><label class="episode-title">${r.title}</label>
