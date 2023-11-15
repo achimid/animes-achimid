@@ -19,7 +19,6 @@ const getSubscribers = () => {
             { useProxy: false, skipImage: true, url: "https://animeshouse.net/", script: readScript("animeshouse-script.js"), name: "Animes House"},
             { useProxy: false, skipImage: true, url: "https://www.anitube.vip/", script: readScript("anitubevip-script.js"), name: "Anitube VIP"},
             { useProxy: false, skipImage: false, url: "https://animeszone.net/epex00/", script: readScript("animeszone-script.js"), name: "Animes Zone"},
-            { useProxy: false, skipImage: true, url: "https://animesonline.nz/episodio/", script: readScript("animesgratis-script.js"), name: "Animes Gratis"},
             { useProxy: false, skipImage: false, url: "https://centralanimestk.net/", script: readScript("centralanimes-script.js"), name: "Central Animes TK"},
             { useProxy: false, skipImage: true, url: "https://www.anroll.net/lancamentos", script: readScript("animesroll-script.js"), name: "AnimesRoll"},
             { useProxy: false, skipImage: true, url: "https://animetvonline.cx/", script: readScript("animetv-script.js"), name: "Anime TV"},
@@ -45,7 +44,8 @@ const getSubscribers = () => {
             { useProxy: false, skipImage: false, url: "https://subsplease.org/", script: readScript("subsplease-script.js"), name: "Subs Please (ENG)"},
             { useProxy: false, skipImage: false, url: "https://goanimes.net/", script: readScript("goanimes-script .js"), name: "Go Animes"},
             { useProxy: false, skipImage: true, url: "https://animefire.vip/", script: readScript("animefire-script.js"), name: "Anime Fire"},
-            { useProxy: false, skipImage: true, url: "https://animesync.org/episodio/", script: readScript("animesync-script.js"), name: "Anime Sync"},
+            { useProxy: false, skipImage: true, url: "https://animesonline.nz/", script: readScript("animesonlinenz-script.js"), name: "Animes Online NZ"},
+            // { useProxy: false, skipImage: true, url: "https://animesync.org/episodio/", script: readScript("animesync-script.js"), name: "Anime Sync"},
         ]
     }
     return [
