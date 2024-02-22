@@ -34,6 +34,6 @@ app.get('/anime/:id', (req, res) => {
 databaseInit()
     .then(() => configurePassport(app))
     .then(() => routes(app))
-    // .then(extractor.start)
+    .then(extractor.start)
 
 app.listen(process.env.PORT)
