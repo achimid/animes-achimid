@@ -173,7 +173,7 @@ const renderAnimes = (json) => {
               <h4>Epi ${item.episode}</h4>
               <h3>${item.anime.name}</h3>                      
             </figcaption>
-            <a href="/info?id=${item.anime._id}" target="_blank" onclick="searchSources('${item.anime.name}', '${item.anime._id}')"></a>          
+            <a href="/anime/${item.anime._id}" target="_blank" onclick="searchSources('${item.anime.name}', '${item.anime._id}')"></a>          
           </figure>              
       `
   }).join('')
@@ -201,7 +201,7 @@ const renderReleases = (json) => {
     return `
       <tr class="new">
           <td class="release-item">            
-              <a href="/info?id=${item.anime._id}" data-preview-image="${item.anime.image}">${item.title.split(' - ')[1].substring(0, 60)}</a>                      
+              <a href="/anime/${item.anime._id}" data-preview-image="${item.anime.image}">${item.title.split(' - ')[1].substring(0, 60)}</a>                      
           </td>                                                                            
           <td class="release-item-time">
             <a href="#" target="_blank" onclick="toggleRelease('${item._id}')" class="badge badge-front badge-new hidden-xs">${item.title.split(' - ')[0]}</a>
@@ -284,9 +284,9 @@ function searchSources(s, id) {
     $('#formSearch').trigger("submit")
   } else {
     if (this.event.ctrlKey) {
-      window.open('/info?id=' + id, '_blank').focus();
+      window.open('/anime/' + id, '_blank').focus();
     } else {
-      window.location = '/info?id=' + id
+      window.location = '/anime/' + id
     }
   }
 
@@ -332,7 +332,7 @@ const renderSchedule = (json) => {
     return `
           <tr class="schedule-widget-item">
             <td class="schedule-widget-show">
-              <a href="/info?id=${d.anime._id}" data-preview-image="${d.anime.image}">${d.title}</a>                                    
+              <a href="/anime/${d.anime._id}" data-preview-image="${d.anime.image}">${d.title}</a>                                    
             </td>
             <td class="schedule-widget-time">${d.aired ? '✔' : ''} ${d.time}</td>
           </tr>

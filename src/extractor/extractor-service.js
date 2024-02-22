@@ -22,21 +22,24 @@ const getSubscribers = () => {
             { useProxy: false, skipImage: false, url: "https://centralanimestk.net/", script: readScript("centralanimes-script.js"), name: "Central Animes TK"},
             { useProxy: false, skipImage: true, url: "https://www.anroll.net/lancamentos", script: readScript("animesroll-script.js"), name: "AnimesRoll"},
             { useProxy: false, skipImage: true, url: "https://animetvonline.cx/", script: readScript("animetv-script.js"), name: "Anime TV"},
-            // { useProxy: false, skipImage: true, url: "https://animesgames.net/lancamentos", script: readScript("animesgames-script.js"), name: "Animes Games"},
+            { useProxy: false, skipImage: true, url: "https://animesgames.cc/lancamentos", script: readScript("animesgames-script.js"), name: "Animes Games"},
             { useProxy: false, skipImage: true, url: "https://animesflix.net/", script: readScript("animesflix-script.js"), name: "Animes Flix"},
             { useProxy: false, skipImage: true, url: "https://subanimestv.com/lancamentos/", script: readScript("subanimes-script.js"), name: "Sub Animes"},
             { useProxy: false, skipImage: true, url: "https://rine.cloud/", script: readScript("rinecloud-script.js"), name: "Rine Cloud"},
             { useProxy: false, skipImage: true, url: "https://animesonlinecc.to/episodio/", script: readScript("animesonlinecc-script.js"), name: "Animes Online CC"},
             { useProxy: false, skipImage: false, url: "https://animesup.art/?post_type=episodes", script: readScript("animesup-script.js"), name: "Animes Up"},
             { useProxy: false, skipImage: true, url: "https://betteranime.net/ultimosAdicionados", script: readScript("betteranime-script.js"), name: "Better Anime"},            
+            { useProxy: false, skipImage: true, url: "https://alqanime.net/", script: readScript("alqanime-script.js"), name: "Alqanime"},                       
         ],
         medium: [
             { useProxy: false, skipImage: false, url: "https://www.animestc.net", script: readScript("animestelecine-script.js"), name: "Animes Telecine"},
             { useProxy: false, skipImage: true, url: "https://saikoanimes.net/episodios-legendados-em-exibicao/", script: readScript("saikoanimes-script.js"), name: "Saiko Animes"},            
             { useProxy: false, skipImage: true, url: "https://goyabu.to/lancamentos", script: readScript("goyabu-script.js"), name: "Goyabu"},            
             { useProxy: false, skipImage: true, url: "https://animesbr.cc/episodio/", script: readScript("animesbr-script.js"), name: "Animes BR"},            
-            { useProxy: false, skipImage: true, url: "https://animesonlinehd.vip/", script: readScript("animes-online-hd.js"), name: "Animes Online HD"},            
+            { useProxy: false, skipImage: true, url: "https://animesonlinehd.vip/", script: readScript("animes-online-hd-script.js"), name: "Animes Online HD"},            
             { useProxy: false, skipImage: true, url: "https://www.hinatasoul.com/", script: readScript("hinata-soul.js"), name: "Hinata Soul"},            
+            { useProxy: false, skipImage: true, url: "https://animesync.org/episodio/", script: readScript("animesync-script.js"), name: "Anime Sync"},
+            { useProxy: false, skipImage: true, url: "https://animeq.blog/", script: readScript("animeq-script.js"), name: "Anime Q"},
             
         ],
         fast: [
@@ -45,7 +48,8 @@ const getSubscribers = () => {
             { useProxy: false, skipImage: false, url: "https://goanimes.net/", script: readScript("goanimes-script .js"), name: "Go Animes"},
             { useProxy: false, skipImage: true, url: "https://animefire.vip/", script: readScript("animefire-script.js"), name: "Anime Fire"},
             { useProxy: false, skipImage: true, url: "https://animesonline.nz/", script: readScript("animesonlinenz-script.js"), name: "Animes Online NZ"},
-            // { useProxy: false, skipImage: true, url: "https://animesync.org/episodio/", script: readScript("animesync-script.js"), name: "Anime Sync"},
+            { useProxy: false, skipImage: true, url: "https://assistiranimes.org/episodio/", script: readScript("assistiranimes-script.js"), name: "Assistir Animes"},
+            
         ]
     }
     return [

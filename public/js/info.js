@@ -1,6 +1,6 @@
 function renderAnimeInfo() {
     let params = (new URL(document.location)).searchParams
-    let id = params.get("id")
+    let id = params.get("id") || document.location.toString().split('/').slice(-1)[0]
 
     fetch('/api/v1/anime-info/show/' + id).then(res => res.json()).then(anime => {
         document.title = (anime.name || 'Anime Info') + ' – Animes Achimid'
@@ -28,7 +28,7 @@ function onLoad() {
     renderAnimeInfo()
     
     let params = (new URL(document.location)).searchParams
-    let id = params.get("id")
+    let id = params.get("id") || document.location.toString().split('/').slice(-1)[0]
 
     fetch("/api/v1/home/anime/" + id)
         .then(res => res.json())

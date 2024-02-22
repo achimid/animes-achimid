@@ -27,7 +27,7 @@ function onLoad() {
             }
             
             html += `<div class="all-shows-link">
-                        <a href="/info?id=${a.anime._id}" data-preview-image="${a.anime.image}" title="${a.anime.name}">${a.anime.name}</a>
+                        <a href="/anime/${a.anime._id}" data-preview-image="${a.anime.image}" title="${a.anime.name}">${a.anime.name}</a>
                     </div>`
 
             last = a.anime.name[0]

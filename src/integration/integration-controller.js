@@ -24,9 +24,6 @@ router.post('/callback', async (req, res) => {
 
     await integrationService.createFromList(itens)
 
-    // queue.push(itens)
-    // startIntegration()    
-
 })
 
 const integrate = async (itens) => {    
@@ -46,12 +43,6 @@ const startIntegration = async () => {
     }
     isIntegrating = false
 }
-
-function sleep(ms) {
-    return new Promise((resolve) => {
-      setTimeout(resolve, ms);
-    });
-  }
 
 setInterval(startIntegration, 30000)
 

@@ -2,6 +2,7 @@ require('dotenv').config()
 
 const maxAge = process.env.NODE_ENV == 'production' ? 1 * 86400000 : 0
 
+const path = require('path')
 const cors = require('cors')
 const express = require('express')
 const compression = require('compression')
@@ -22,6 +23,12 @@ app.use(cookieParser())
 app.disable('x-powered-by')
 
 app.use(express.static('public', { maxAge, extensions: ['html', 'xml'] }))
+app.use('/anime', express.static('public', { maxAge, extensions: ['html', 'xml'] }))
+
+app.get('/anime/:id', (req, res) => {
+    res.sendFile(path.join(__dirname.replace('/src','') + '/public/info.html'))
+})
+
 
 databaseInit()
     .then(() => configurePassport(app))

@@ -50,9 +50,7 @@ Agregador dos lançamento de animes da temporada para Fansubs, Sites de animes e
 [ ] Criar um front-end do anime-info-api baseado no front do Jikan, bem simples. 
 
 [ ] Adicionar mais sites para monitorar.
-    - https://animexhd.net/
-    - https://animeq.blog/98535/
-    - https://animetvonline.cx/
+    - https://centraldeanime.biz/
     - https://animes.vision/
     - https://alqanime.net/
     - https://www.animesonline22.com/
