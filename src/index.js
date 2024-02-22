@@ -25,10 +25,9 @@ app.disable('x-powered-by')
 app.use(express.static('public', { maxAge, extensions: ['html', 'xml'] }))
 app.use('/anime', express.static('public', { maxAge, extensions: ['html', 'xml'] }))
 
+const baseDir = process.cwd()
 app.get('/anime/:id', (req, res) => {
-    console.log(__dirname)
-    console.log(__dirname.replace('/src','').replace('/src',''))
-    res.sendFile(path.join(__dirname.replace('/src','').replace('/src','') + '/public/info.html'))
+    res.sendFile(path.join(baseDir + '/public/info.html'))
 })
 
 
