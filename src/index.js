@@ -26,13 +26,15 @@ app.use(express.static('public', { maxAge, extensions: ['html', 'xml'] }))
 app.use('/anime', express.static('public', { maxAge, extensions: ['html', 'xml'] }))
 
 app.get('/anime/:id', (req, res) => {
-    res.sendFile(path.join(__dirname.replace('/src','') + '/public/info.html'))
+    console.log(__dirname)
+    console.log(__dirname.replace('/src','').replace('/src',''))
+    res.sendFile(path.join(__dirname.replace('/src','').replace('/src','') + '/public/info.html'))
 })
 
 
 databaseInit()
     .then(() => configurePassport(app))
     .then(() => routes(app))
-    .then(extractor.start)
+    // .then(extractor.start)
 
 app.listen(process.env.PORT)
