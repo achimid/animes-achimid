@@ -1,20 +1,19 @@
 const posts = []
 
-const episodes = [...document.querySelectorAll('.episodes')].slice(0, 30).reverse()
+const episodes = [...document.querySelectorAll('.episodiosItem')].reverse()
 for (let i = 0; i < episodes.length; i++) {
     const $episode = episodes[i]
 
     const url = $episode.querySelector('a').href
-    const anime = $episode.querySelector('span.serie').innerText
-    const episode = parseInt($episode.querySelector('.data h3').innerText.match(/\d+/g))
+    const anime = $episode.querySelector('.episodiosTitulo').innerText
+    const episode = parseInt($episode.querySelector('.episodiosEpi').innerText.match(/\d+/g))
     const title = `${anime} - Episódio ${episode}`
 
     const languages = ['PT-BR']
-    const isDub = url.toLowerCase().indexOf('-dub') >= 0
-
+    const isDub = $episode.querySelector('.episodiosCc').innerText.toLowerCase() !== 'legendado'
     
     const post = {
-        from: "Anime Sync",
+        from: "Central de Animes",
         url,
         title,
         anime,

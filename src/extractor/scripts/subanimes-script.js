@@ -1,12 +1,12 @@
 const posts = []
 
-const episodes = [...document.querySelectorAll('article')].reverse()
+const episodes = [...document.querySelectorAll('.epiItem')].reverse()
 for (let i = 0; i < episodes.length; i++) {
     const $episode = episodes[i]
 
     const url = $episode.querySelector('a').href
-    const anime = $episode.querySelector('.epiAnime').innerText.replace('Assistir', '')
-    const episode = parseInt($episode.querySelector('.epiNumber').innerText.match(/\d+/g))
+    const anime = $episode.querySelector('.epiData').innerText.replace('Assistir', '')
+    const episode = parseInt($episode.querySelector('.epiAniTitulo').innerText.match(/\d+/g))
     const title = `${anime} - Episódio ${episode}`
     
     const post = {

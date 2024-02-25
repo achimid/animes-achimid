@@ -8,13 +8,20 @@ for (let i = 0; i < episodes.length; i++) {
     const anime = $episode.querySelector('.ntitle').innerText
     const episode = parseInt($episode.querySelector('.epsx').innerText.match(/\d+/g))
     const title = `${anime} - Episódio ${episode}`
+
+    if (!episode) continue;
+
+    const languages = ['PT-BR']
+    const isDub = false
     
     const post = {
         from: "Dark Animes",
         url,
         title,
         anime,
-        episode
+        episode,
+        languages,
+        isDub
     }
     
     console.log(post)
