@@ -1,12 +1,12 @@
 const posts = []
 
-const episodes = [...document.querySelectorAll('.items.full > .item')].reverse()
+const episodes = [...document.querySelectorAll('.ultimosEpisodiosHomeItem')].reverse()
 for (let i = 0; i < episodes.length; i++) {
     const $episode = episodes[i]
 
-    const url = $episode.querySelector('.data a').href
-    const anime = $episode.querySelector('.serie').innerText
-    const episode = parseInt($episode.querySelector('.data a').innerText.match(/\d+/g))
+    const url = $episode.querySelector('a').href
+    const anime = $episode.querySelector('.ultimosEpisodiosHomeItemInfosNome').innerText.split(' ep ')[0]
+    const episode = parseInt($episode.querySelector('.ultimosEpisodiosHomeItemInfosNum').innerText.match(/\d+/g))
     const title = `${anime} - Episódio ${episode}`
     const mirrorOnline = url
     

@@ -1,6 +1,6 @@
 const posts = []
 
-const episodes = [...document.querySelectorAll('article')].slice(0, 20).reverse()
+const episodes = [...document.querySelectorAll('.animation-2.items.full article')].slice(0, 20).reverse()
 for (let i = 0; i < episodes.length; i++) {
     const $episode = episodes[i]
 
@@ -14,7 +14,7 @@ for (let i = 0; i < episodes.length; i++) {
 
     
     const post = {
-        from: "Assistir Animes",
+        from: "Bakashi",
         url,
         title,
         anime,

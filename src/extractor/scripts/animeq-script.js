@@ -6,8 +6,8 @@ for (let i = 0; i < episodes.length; i++) {
 
     const url = $episode.querySelector('a').href
     const preTitle = $episode.querySelector('img').alt
-    const anime = preTitle.split('–')[0].replace('Dublado', '').replace('Legendado', '').trim()
-    const episode = parseInt($episode.querySelector('a').title.split('–')[1].match(/\d+/g))
+    const anime = preTitle.split('Episódio')[0].replace('Dublado', '').replace('Legendado', '').trim()
+    const episode = parseInt(preTitle.split('Episódio')[1].match(/\d+/g))
     const title = `${anime} - Episódio ${episode}`
 
     const languages = ['PT-BR']

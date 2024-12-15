@@ -72,6 +72,10 @@ Agregador dos lançamento de animes da temporada para Fansubs, Sites de animes e
     - https://www1.kickassanime.mx/
     - https://everythingmoe.com/
     - https://animetake.tv/
+    - https://www.animeschyroll.online/
+    - https://animesdigital.org/
+    - https://animetvonline.blog/    
+    - https://bakashi.to/
 
 [ ] Corrigir a versão da descrição para portugues.
 
