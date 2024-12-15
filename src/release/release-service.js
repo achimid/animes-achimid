@@ -81,10 +81,39 @@ const createFromIntegration = async (i, animeExternal) => {
     }))
 }
 
+const fixJoinAnime = async (fromAnimeId, toAnimeId) => {
+    const fromReleases = await releaseRepository.findByAnimeId(fromAnimeId)
+    const toReleases = await releaseRepository.findByAnimeId(toAnimeId)
+
+    for (let i = 0; i < fromReleases.length; i++) {
+        const release = fromReleases[i];
+        const releaseMatch = toReleases.filter(r => r.anime._id == release.anime._id && r.episode == release.episode)
+
+        if (releaseMatch.length == 0) continue;
+        
+        //     // Release for this episode already exists, should join
+        //     const releaseMatchFirst = releaseMatch[0]
+            
+        //     releaseMatchFirst.anime = release.anime
+        //     releaseMatchFirst.mirrors = [...releaseMatchFirst.mirrors, ...release.mirrors]
+        //     releaseMatchFirst.sources = [...releaseMatchFirst.sources, ...release.sources]
+            
+        //     await releaseMatch.save().catch(console.error)
+        //     console.log('Release.Anime atualizado...' + releaseMatch.anime.name)
+        // } else {
+        //     // Release for this episode nor existe, just switch animes
+        //     releaseMatch.anime = release.anime
+        //     await releaseMatch.save().catch(console.error)
+        //     console.log('Release.Anime atualizado...' + releaseMatch.anime.name)
+        // }
+    }    
+}
+
 module.exports = {
     findLast,
     findByQuery,
+    fixJoinAnime,
     findByAnimeId,
     findAnimeNames,
-    processRelease
+    processRelease,
 }

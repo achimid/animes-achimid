@@ -28,7 +28,7 @@ router.get('/status',  async (req, res) => {
 
 let cacheSchedule
 
-setInterval(() => cacheSchedule = null, 60 * 1000 * 3)
+setInterval(() => cacheSchedule = null, 60 * 1000 * 5)
 
 router.get('/schedule',  async (req, res) => {
 
@@ -87,6 +87,12 @@ router.get('/extractor/force', async (req, res) => {
     res.status(OK).json()
 
     extractorService.execute()
+})
+
+router.get('/fix/from/:fromId/to/:toId', async (req, res) => {
+    return releaseService.fixJoinAnime(req.params.fromId, req.params.toId)
+        .then(releases => res.status(OK).json(releases))
+        .catch(res.onError)    
 })
 
 
