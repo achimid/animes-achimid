@@ -42,6 +42,7 @@ const getSubscribers = () => {
             { useProxy: false, skipImage: false, url: "https://www.goanimes.vip/", script: readScript("goanimes-script .js"), name: "Go Animes"},
             { useProxy: false, skipImage: true, url: "https://animefire.plus/", script: readScript("animefire-script.js"), name: "Anime Fire"},            
             { useProxy: false, skipImage: true, url: "https://bakashi.net/", script: readScript("bakashi-script.js"), name: "Bakashi"},
+            { useProxy: false, skipImage: false, url: "https://anitora.ru/", script: readScript("anitora-script.js"), name: "AniTora"},
             
             
         ]
