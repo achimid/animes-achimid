@@ -1,6 +1,6 @@
 const posts = []
 
-const episodes = [...document.querySelectorAll('.ultimosEpisodiosHomeItem')].reverse()
+const episodes = [...document.querySelectorAll('.ultimosEpisodiosHomeItem')].slice(0, 20).reverse()
 for (let i = 0; i < episodes.length; i++) {
     const $episode = episodes[i]
 

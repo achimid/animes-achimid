@@ -37,12 +37,12 @@ const getSubscribers = () => {
         ],
         fast: [
             { useProxy: false, skipImage: true, url: "https://nyaa.si/?f=0&c=0_0&q=%5BErai-raws%5D+%5B1080p%5D%5BMultiple+Subtitle%5D", script: readScript("erairaws-script.js"), name: "Erai-raws (Nyaa)"},
-            { useProxy: false, skipImage: true, url: "https://nyaa.si/?f=0&c=0_0&q=%5BErai-raws%5D+%5B1080p+CR+WEB-DL+AVC+EAC3%5D", script: readScript("erairaws-script.js"), name: "Erai-raws (Nyaa)"},
+            { useProxy: false, skipImage: true, url: "https://nyaa.si/?f=0&c=0_0&q=%5BErai-raws%5D+%5B1080p+CR+WEB-DL", script: readScript("erairaws-script.js"), name: "Erai-raws (Nyaa)"},
             { useProxy: false, skipImage: false, url: "https://subsplease.org/", script: readScript("subsplease-script.js"), name: "Subs Please (ENG)"},
             { useProxy: false, skipImage: false, url: "https://www.goanimes.vip/", script: readScript("goanimes-script .js"), name: "Go Animes"},
             { useProxy: false, skipImage: true, url: "https://animefire.plus/", script: readScript("animefire-script.js"), name: "Anime Fire"},            
-            { useProxy: false, skipImage: true, url: "https://bakashi.net/", script: readScript("bakashi-script.js"), name: "Bakashi"},
-            { useProxy: false, skipImage: false, url: "https://anitora.ru/", script: readScript("anitora-script.js"), name: "AniTora"},
+            { useProxy: false, skipImage: true, url: "https://q1n.net/", script: readScript("bakashi-script.js"), name: "Bakashi"},
+            
             
             
         ]
@@ -65,6 +65,7 @@ const getSubscribers = () => {
         // { useProxy: false, skipImage: true, url: "https://animesync.org/episodio/", script: readScript("animesync-script.js"), name: "Anime Sync"},
         // { useProxy: false, skipImage: true, url: "https://animes.vision/", script: readScript("animesvision-script.js"), name: "Animes Vision"},
         // { useProxy: false, skipImage: true, url: "https://animesonline.nz/", script: readScript("animesonlinenz-script.js"), name: "Animes Online NZ"},
+        // { useProxy: false, skipImage: false, url: "https://anitora.ru/", script: readScript("anitora-script.js"), name: "AniTora"},
     ]
 } 
 
