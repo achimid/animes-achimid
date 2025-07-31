@@ -5,6 +5,7 @@ const user = require('../user/user-controller')
 const authController = require('../auth/auth-controller')
 const animeInfo = require('../anime-info/anime-info-controller')
 const integration = require('../integration/integration-controller')
+const sitemap = require('../sitemap/sitemap-controller')
 
 const { errorHandler } = require('./error-handler')
 const { preAuthHeader, auth } = require('../auth/auth-middleware')
@@ -26,6 +27,7 @@ module.exports = (app) => {
     app.use(`${prefix}/auth`, authController)
     app.use(`${prefix}/integration`, integration)
 
+    app.use(``, sitemap)
 
     console.info(`Rotas registradas com sucesso...`)
 

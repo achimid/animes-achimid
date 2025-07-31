@@ -41,6 +41,8 @@ const findAnimeNames = async () => {
     return Promise.all(ids.map((id) => Release.findOne({'anime._id': id}).select('anime._id anime.name anime.image').lean()))
 }
 
+const findAnimeIds = async () => Release.distinct("anime._id").lean()
+
 const save = async (release) => {
     return release.save()
 }
@@ -56,6 +58,7 @@ module.exports = {
     findLast,
     findByQuery,
     findByAnimeId,
+    findAnimeIds,
     findAnimeNames,
     findByAnimeIdAndEpisode
 }

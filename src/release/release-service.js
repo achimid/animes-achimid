@@ -12,6 +12,8 @@ const findByAnimeId = releaseRepository.findByAnimeId
 
 const findAnimeNames = releaseRepository.findAnimeNames
 
+const findAnimeIds = releaseRepository.findAnimeIds
+
 const processRelease = async (integration) => {
 
     const { anime, episode } = integration
@@ -86,5 +88,6 @@ module.exports = {
     findByQuery,
     findByAnimeId,
     findAnimeNames,
+    findAnimeIds,
     processRelease
 }
