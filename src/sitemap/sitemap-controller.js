@@ -7,7 +7,7 @@ releaseService.findAnimeIds().then(ids => {
     animesIds = ids
 })
 
-router.get('/sitemap.xml',  async (req, res) => {
+const generate = async (req, res) => {
     const dateH = new Date();
     dateH.setHours(dateH.getHours() - 4);
 
@@ -32,17 +32,20 @@ router.get('/sitemap.xml',  async (req, res) => {
     <priority>0.3</priority>
   </url>
   ${animesIds.map(i => {
-    return `<url>
+    return `  <url>
     <loc>https://animes.achimid.com.br/anime/${i}</loc>
     <lastmod>${dateH.toISOString()}</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.9</priority>
   </url>`
-  })}  
+  }).join('\n')}  
 </urlset>`
     
     res.header('Content-Type', 'application/xml')
     res.send(content)
-})
+}
+
+router.get('/sitemap', generate)
+router.get('/sitemap.xml', generate)
 
 module.exports = router
