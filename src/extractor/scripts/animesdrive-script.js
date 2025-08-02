@@ -15,7 +15,7 @@ for (let i = 0; i < episodes.length; i++) {
 
     
     const post = {
-        from: "Anime Q",
+        from: "Animes Drive",
         url,
         title,
         anime,

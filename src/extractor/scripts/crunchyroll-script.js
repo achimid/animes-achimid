@@ -12,7 +12,7 @@ async function extract() {
     await sleep(1000)
     window.scrollTo(0, document.body.scrollHeight);
     await sleep(1000)
-    window.scrollTo(0, document.body.scrollHeight);
+    document.querySelector("[class^='release-episodes-section']").scrollIntoView();
     await sleep(1000)
 
     const posts = []
