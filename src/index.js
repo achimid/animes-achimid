@@ -33,8 +33,8 @@ app.get('/anime/:id', async (req, res) => {
     const anime = await animeInfoService.findAnimeInfoById(req.params.id)
 
     let fileContent = await fs.readFile(path.join('public', 'info.html'), 'utf8');
-    const animeNameScaped = anime.name.replace(/"/g, '')
-    const animeDescriptionScaped = anime.description.replace(/"/g, '')
+    const animeNameScaped = anime?.name?.replace(/"/g, '')
+    const animeDescriptionScaped = anime?.description?.replace(/"/g, '')
 
     fileContent = fileContent
                 .replace('<title>Anime Info – Animes Achimid</title>', `<title>${animeNameScaped} – Animes Achimid</title>`)
