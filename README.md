@@ -1,7 +1,6 @@
 # [Animes Achimid](https://animes.achimid.com.br/)
 
 - https://animes.achimid.com.br
-- https://anifan.com.br
 - https://animex.achimid.com.br
 
 ------------------------
@@ -23,7 +22,6 @@ Agregador dos lançamento de animes da temporada para Fansubs, Sites de animes e
 
 ## Serviços e APIs
 - [Achimid Site] https://achimid.com.br/
-- [AniFan] https://anifan.com.br/
 - [Animes Achimid] https://animes.achimid.com.br/
 - [AnimeX] https://animex.achimid.com.br
 - [Puppeteer Executor] https://puppeteer-executor.achimid.com.br/
